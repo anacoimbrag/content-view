@@ -32,6 +32,9 @@ jobs:
           java-version: 1.8
 
       - name: Build library
+          run: bash git pull origin version-tag
+
+      - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
 
       - name: Publish library
@@ -40,9 +43,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: anacoimbrag
 
+      - name: Update git
+        run: bash git checkout version-tag && git commit -a -m "updat version" && git push origin version-tag
 
       - name: Upload aar
-        uses: actions/upload-artifact@v1
-        with:
-          name: lib
-          path: ${{ github.workspace }}/contentview/build/output/**/*
+      uses: actions/upload-artifact@v1
+      with:
+        name: lib
+        path: ${{ github.workspace }}/**/*.aar
