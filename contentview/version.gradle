@@ -1,0 +1,55 @@
+ext {
+    versionFile = new File(project.rootDir, 'version.properties')
+    calculateVersionName = {
+        def version = readVersion()
+        return "${version['major']}.${version['minor']}.${version['build']}"
+    }
+    calculateVersionCode = {
+        def version = readVersion()
+        def major = version['major'] as int // 1..∞
+        def minor = version['minor'] as int // 0..99
+        def build = version['build'] as int // 0..999
+        return (major * 100 + minor) * 1000 + build
+    }
+}
+
+
+Properties readVersion() {
+    def version = new Properties()
+    def stream
+    try {
+        stream = new FileInputStream(versionFile)
+        version.load(stream)
+    } catch (FileNotFoundException ignore) {
+    } finally {
+        if (stream != null) stream.close()
+    }
+    // safety defaults in case file is missing
+    if(!version['major']) version['major'] = "0"
+    if(!version['minor']) version['minor'] = "0"
+    if(!version['build']) version['build'] = "1"
+    return version
+}
+
+void incrementVersionNumber() {
+    def version = readVersion()
+
+    // careful with the types, culprits: "9"++ = ":", "9" + 1 = "91"
+    def build = version['build'] as int
+    build++
+    version['build'] = build.toString()
+
+    def stream = new FileOutputStream(versionFile)
+    try {
+        version.store(stream, null)
+    } finally {
+        stream.close()
+    }
+}
+
+task incrementVersion {
+    description "Increments build counter in ${versionFile}"
+    doFirst {
+        incrementVersionNumber()
+    }
+}
