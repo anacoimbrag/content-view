@@ -1,3 +1,3 @@
-![Github Packages](https://github.com/anacoimbrag/content-view/workflows/Github%20Packages/badge.svg)
+# ContentView
 
-# content-view
+![Github Packages](https://github.com/anacoimbrag/content-view/workflows/Github%20Packages/badge.svg)
