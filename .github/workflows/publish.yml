@@ -31,8 +31,13 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Build library
-          run: git fetch --all && git rebase version-tag
+      - name: repo-sync
+          uses: repo-sync/github-sync@v2
+          with:
+            source_repo: "https://github.com/anacoimbrag/content-view.git"
+            source_branch: "version-tag"
+            destination_branch: "master"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
