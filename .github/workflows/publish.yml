@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Publish ContentView Library to Github Packages
+name: Github Packages
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -48,8 +48,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: anacoimbrag
 
+
       - name: Upload aar
         uses: actions/upload-artifact@v1
         with:
           name: app
-          path: app/build/outputs/aar/*.aar
+          path: contentview/build/outputs/aar/*.aar
