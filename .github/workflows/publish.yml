@@ -44,5 +44,5 @@ jobs:
       - name: Upload aar
         uses: actions/upload-artifact@v1
         with:
-          name: app
-          path: /**/*.aar
+          name: lib
+          path: ${{ github.workspace }}/contentview/build/output/**/*
