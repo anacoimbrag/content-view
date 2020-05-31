@@ -32,7 +32,7 @@ jobs:
           java-version: 1.8
 
       - name: Build library
-          run: bash git pull origin version-tag
+          run: git pull origin version-tag
 
       - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
@@ -44,7 +44,7 @@ jobs:
           GITHUB_USER: anacoimbrag
 
       - name: Update git
-        run: bash git checkout version-tag && git commit -a -m "update version" && git push origin version-tag
+        run: git checkout version-tag && git commit -a -m "update version" && git push origin version-tag
 
       - name: Upload aar
       uses: actions/upload-artifact@v1
