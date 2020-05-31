@@ -41,7 +41,7 @@ jobs:
           GITHUB_USER: anacoimbrag
 
       - name: Update git
-        run: git fetch --all && git checkout version-tag && git commit -a -m "update version" && git push origin version-tag
+        run: git checkout -b version-tag && git commit -a -m "update version" && git fetch --all && git push origin version-tag
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
