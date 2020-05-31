@@ -32,12 +32,11 @@ jobs:
           java-version: 1.8
 
       - name: repo-sync
-          uses: repo-sync/github-sync@v2
-          with:
-            source_repo: "https://github.com/anacoimbrag/content-view.git"
-            source_branch: "version-tag"
-            destination_branch: "master"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+        uses: repo-sync/github-sync@v2
+        with:
+          source_branch: "version-tag"
+          destination_branch: "master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
@@ -52,7 +51,7 @@ jobs:
         run: git checkout version-tag && git commit -a -m "update version" && git push origin version-tag
 
       - name: Upload aar
-      uses: actions/upload-artifact@v1
-      with:
-        name: lib
-        path: ${{ github.workspace }}/**/*.aar
+        uses: actions/upload-artifact@v1
+        with:
+          name: lib
+          path: ${{ github.workspace }}/**/*.aar
