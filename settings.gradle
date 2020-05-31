@@ -1,2 +1,4 @@
+include ':sample'
+include ':contentview'
 include ':app'
 rootProject.name = "ContentView"

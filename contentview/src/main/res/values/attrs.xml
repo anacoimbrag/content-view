@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ContentView">
+        <attr name="layout_loading" format="reference" />
+        <attr name="layout_content" format="reference" />
+        <attr name="layout_error" format="reference" />
+        <attr name="layout_empty" format="reference" />
+    </declare-styleable>
+</resources>

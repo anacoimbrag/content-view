@@ -1,4 +1,4 @@
-package com.anacoimbra.android.contentview
+package com.anacoimbra.android.sample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.anacoimbra.android.contentview", appContext.packageName)
+        assertEquals("com.anacoimbra.android.sample", appContext.packageName)
     }
 }
