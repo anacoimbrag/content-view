@@ -40,9 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: anacoimbrag
 
-      - name: Update git
-        run: git checkout -b version-tag && git commit -a -m "update version" && git fetch --all && git push origin version-tag
-
       - name: Upload aar
         uses: actions/upload-artifact@v1
         with:
