@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: lib
-          path: ${{ github.workspace }}/contentview/build/outputs/aar/*.aar
+          path: contentview/build/outputs/aar/contentview-release.aar
