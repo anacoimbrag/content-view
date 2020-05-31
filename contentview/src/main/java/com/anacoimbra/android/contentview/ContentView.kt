@@ -125,7 +125,8 @@ class ContentView @JvmOverloads constructor(
         if (previousLayout != null)
             removeView(previousLayout)
         if (layoutId != 0) {
-            val view = LayoutInflater.from(context).inflate(layoutId, this)
+            val view = LayoutInflater.from(context).inflate(layoutId, this, false)
+            view.setVisibility(false)
             view.tag = type
             addView(view)
         }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="120dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:drawableTop="@drawable/ic_error"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="@string/error_text"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

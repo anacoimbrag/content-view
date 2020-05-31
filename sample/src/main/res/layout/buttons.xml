@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/show_loading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:onClick="showLayout"
+        android:text="@string/show_loading"
+        android:theme="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintEnd_toStartOf="@id/show_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/show_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:onClick="showLayout"
+        android:text="@string/show_content"
+        android:theme="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/show_loading"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:onClick="showLayout"
+        android:text="@string/show_error"
+        android:theme="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintEnd_toStartOf="@id/showEmpty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/show_loading" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showEmpty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:onClick="showLayout"
+        android:text="@string/show_empty"
+        android:theme="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/showError"
+        app:layout_constraintTop_toBottomOf="@id/show_content" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showLayout"
+        android:text="@string/show_custom"
+        android:theme="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showError" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
