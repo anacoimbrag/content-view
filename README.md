@@ -1,7 +1,7 @@
 # ContentView
 
 ![Deploy](https://github.com/anacoimbrag/content-view/workflows/Github%20Packages/badge.svg)
-[![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view))
+[![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view)
 
 Simple customizable component to show different types of layout. There are 4 default layout types 
 to use: *LOADING*, *CONTENT*, *ERROR* and *EMPTY* or you can setup a customized one.
@@ -76,8 +76,8 @@ contentView.setLayout(R.layout.custom_layout, ContentView.LAYOUT_TYPE_LOADING)
 contentView.setLayout(R.layout.custom_layout, LAYOUT_TYPE_CUSTOM, false)
 
 fun setLayout(
-    @LayoutRes layout: Int, //Layout resource id
+    @LayoutRes layout: Int, // Layout resource id
     type: Int, // Layout type (Int)
-    showNow: Boolean // Show as soon as added to the container
+    showNow: Boolean // Show as soon as added to the container, default: false
 )
 ```
