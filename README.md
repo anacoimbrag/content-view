@@ -1,7 +1,7 @@
 # ContentView
 
 ![Deploy](https://github.com/anacoimbrag/content-view/workflows/Github%20Packages/badge.svg)
-[ ![Download](https://api.bintray.com/packages/anacoimbrag/content-view/content-view/images/download.svg) ](https://bintray.com/anacoimbrag/content-view/content-view/_latestVersion)
+[![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view))
 
 Simple customizable component to show different types of layout. There are 4 default layout types 
 to use: *LOADING*, *CONTENT*, *ERROR* and *EMPTY* or you can setup a customized one.
@@ -15,7 +15,7 @@ For a working implementation, please take a look at the [sample](https://github.
 // project/build.gradle
 allprojects {
     repositories {
-        jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 ```
@@ -23,7 +23,7 @@ allprojects {
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation "com.anacoimbra.android.content-view:${latest_version}"
+    implementation "com.anacoimbra.android.content-view:$latest_version"
 }
 ```
 
