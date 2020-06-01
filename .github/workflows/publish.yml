@@ -34,11 +34,11 @@ jobs:
       - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
 
-      - name: Publish library
-        run: bash ./gradlew publish --stacktrace
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: anacoimbrag
+#      - name: Publish library
+#        run: bash ./gradlew :contentview:bintrayUpload --stacktrace
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          GITHUB_USER: anacoimbrag
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
