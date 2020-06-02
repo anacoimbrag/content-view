@@ -52,16 +52,16 @@ jobs:
           path: ./version.properties
           property: version
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
-          with:
-            repo_token: ${{ secrets.GITHUB_TOKEN }}
-            automatic_release_tag: ${{ steps.read_property.outputs.value }}
-            prerelease: true
-            title: v.${{ steps.read_property.outputs.value }}
-            files: |
-              LICENSE
-              **/*.jar
-              **/*.aar
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: ${{ steps.read_property.outputs.value }}
+          prerelease: true
+          title: v.${{ steps.read_property.outputs.value }}
+          files: |
+            LICENSE
+            **/*.jar
+            **/*.aar
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
