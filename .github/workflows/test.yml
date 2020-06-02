@@ -18,4 +18,9 @@ jobs:
           java-version: 1.8
 
       - name: Unit tests
-        run: bash ./gradlew :contentview:test --stacktrace
+        run: bash ./gradlew :contentview:codeCoverageReport --stacktrace
+
+      - name: Coverage Report
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./contentview/build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml # optional
