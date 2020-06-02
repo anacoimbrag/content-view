@@ -74,7 +74,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: reports
-          path: contentview/build/reports/*.xml
+          path: contentview/build/reports/.xml
 
       - name: Upload tests
         uses: actions/upload-artifact@v1
