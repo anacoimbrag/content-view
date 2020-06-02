@@ -23,7 +23,19 @@ jobs:
       - name: Coverage Report
         uses: codecov/codecov-action@v1
         with:
-          file: ./contentview/build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml # optional
+          file: ./contentview/build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: contentview/build/reports/**/*.xml
+
+      - name: Upload tests
+        uses: actions/upload-artifact@v1
+        with:
+          name: tests
+          path: contentview/build/test-results/**/*.xml
 
   publish:
     name: Publish library
@@ -69,18 +81,6 @@ jobs:
         with:
           name: build
           path: contentview/build/outputs/
-
-      - name: Upload reports
-        uses: actions/upload-artifact@v1
-        with:
-          name: reports
-          path: contentview/build/reports/
-
-      - name: Upload tests
-        uses: actions/upload-artifact@v1
-        with:
-          name: tests
-          path: contentview/build/test-results/
 
       - name: Upload docs
         uses: actions/upload-artifact@v1
