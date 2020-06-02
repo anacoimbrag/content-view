@@ -43,7 +43,7 @@ jobs:
         run: git fetch --tags && echo version=$(git tag | tail -1) > version.properties
 
       - name: Build library
-        run: bash ./gradlew incrementVersion :contentview:build --stacktrac
+        run: bash ./gradlew incrementVersion contentview:assembleRelease --stacktrace
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
