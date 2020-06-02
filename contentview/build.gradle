@@ -36,6 +36,11 @@ dokka {
     outputDirectory = "$buildDir/dokka"
 }
 
+task javadocJar(type: Jar, dependsOn: dokka) {
+    archiveClassifier.set 'javadoc'
+    from dokka.outputDirectory
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

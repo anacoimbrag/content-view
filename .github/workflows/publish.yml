@@ -43,7 +43,25 @@ jobs:
         run: git fetch --tags && echo version=$(git tag | tail -1) > version.properties
 
       - name: Build library
-        run: bash ./gradlew incrementVersion contentview:assembleRelease --stacktrace
+        run: bash ./gradlew incrementVersion contentview:assembleRelease contentview:javadocJar --stacktrace
+
+      - name: Get version
+        id: read_property
+        uses: christian-draeger/read-properties@1.0.1
+        with:
+          path: ./version.properties
+          property: version
+
+      - uses: marvinpinto/action-automatic-releases@latest
+          with:
+            repo_token: ${{ secrets.GITHUB_TOKEN }}
+            automatic_release_tag: ${{ steps.read_property.outputs.value }}
+            prerelease: true
+            title: v.${{ steps.read_property.outputs.value }}
+            files: |
+              LICENSE
+              **/*.jar
+              **/*.aar
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
