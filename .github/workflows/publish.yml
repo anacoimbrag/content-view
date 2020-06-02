@@ -71,19 +71,19 @@ jobs:
           path: contentview/build/outputs/*
 
       - name: Upload reports
-          uses: actions/upload-artifact@v1
-          with:
-            name: reports
-            path: contentview/build/reports/**/*.xml
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: contentview/build/reports/**/*.xml
 
       - name: Upload tests
-          uses: actions/upload-artifact@v1
-          with:
-            name: tests
-            path: contentview/build/test-results/**/*.xml
+        uses: actions/upload-artifact@v1
+        with:
+          name: tests
+          path: contentview/build/test-results/**/*.xml
 
       - name: Upload docs
-          uses: actions/upload-artifact@v1
-          with:
-            name: docs
-            path: contentview/build/libs/*.jar
+        uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: contentview/build/libs/*.jar
