@@ -120,15 +120,32 @@ class ContentView @JvmOverloads constructor(
         if (showNow) showLayout(type)
     }
 
+    /**
+     * Adds a layout child with tag of type and presents it if showNow = true
+     * @param layout The layout view to be added
+     * @param type Layout type can be one of [LAYOUT_TYPE_LOADING], [LAYOUT_TYPE_CONTENT], [LAYOUT_TYPE_ERROR], [LAYOUT_TYPE_EMPTY] or a custom type int
+     * @param showNow Whether to present or not this just added layout
+     */
+    fun setLayout(layout: View, type: Int, showNow: Boolean = false) {
+        addLayout(layout, type)
+        if (showNow) showLayout(type)
+    }
+
     private fun addLayout(@LayoutRes layoutId: Int, type: Int) {
+        if (layoutId != 0) {
+            val view = LayoutInflater.from(context).inflate(layoutId, this, false)
+            addLayout(view, type)
+        }
+    }
+
+    private fun addLayout(layout: View?, type: Int) {
         val previousLayout = findViewWithTag<View>(type)
         if (previousLayout != null)
             removeView(previousLayout)
-        if (layoutId != 0) {
-            val view = LayoutInflater.from(context).inflate(layoutId, this, false)
-            view.setVisibility(false)
-            view.tag = type
-            addView(view)
+        if (layout != null) {
+            layout.setVisibility(false)
+            layout.tag = type
+            addView(layout)
         }
     }
 
