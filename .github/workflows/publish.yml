@@ -36,16 +36,11 @@ jobs:
           java-version: 1.8
 
       - name: Update version
+        uses: fnkr/github-action-git-bash@v1
         run: bash git fetch --tags && echo version=$(git tag | tail -1) > version.properties
 
       - name: Build library
         run: bash ./gradlew incrementVersion :contentview:build --stacktrace
-
-#      - name: Publish library
-#        run: bash ./gradlew :contentview:bintrayUpload --stacktrace
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          GITHUB_USER: anacoimbrag
 
       - name: Upload aar
         uses: actions/upload-artifact@v1
