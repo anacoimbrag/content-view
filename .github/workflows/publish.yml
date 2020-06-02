@@ -68,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: build
-          path: contentview/build/outputs/*
+          path: contentview/build/outputs/
 
       - name: Upload reports
         uses: actions/upload-artifact@v1
