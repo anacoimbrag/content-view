@@ -60,11 +60,30 @@ jobs:
           title: v.${{ steps.read_property.outputs.value }}
           files: |
             LICENSE
-            **/*.jar
-            **/*.aar
+            contentview/build/outputs/**/*.jar
+            contentview/build/outputs/**/*.aar
+            contentview/build/libs/**/*.jar
 
-      - name: Upload aar
+      - name: Upload build
         uses: actions/upload-artifact@v1
         with:
-          name: lib
-          path: contentview/build/outputs/aar/contentview-release.aar
+          name: build
+          path: contentview/build/outputs/*
+
+      - name: Upload reports
+          uses: actions/upload-artifact@v1
+          with:
+            name: reports
+            path: contentview/build/reports/**/*.xml
+
+      - name: Upload tests
+          uses: actions/upload-artifact@v1
+          with:
+            name: tests
+            path: contentview/build/test-results/**/*.xml
+
+      - name: Upload docs
+          uses: actions/upload-artifact@v1
+          with:
+            name: docs
+            path: contentview/build/libs/*.jar
