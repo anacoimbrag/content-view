@@ -2,6 +2,7 @@ package com.anacoimbra.android.contentview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
@@ -55,15 +56,29 @@ class ContentView @JvmOverloads constructor(
         }
 
     init {
+
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ContentView)
 
-        loadingLayoutId = typedArray.getResourceId(R.styleable.ContentView_layout_loading, 0)
-        contentLayoutId = typedArray.getResourceId(R.styleable.ContentView_layout_content, 0)
-        errorLayoutId = typedArray.getResourceId(R.styleable.ContentView_layout_error, 0)
-        emptyLayoutId = typedArray.getResourceId(R.styleable.ContentView_layout_empty, 0)
+        loadingLayoutId = typedArray.getResourceId(R.styleable.ContentView_cv_layout_loading, 0)
+        contentLayoutId = typedArray.getResourceId(R.styleable.ContentView_cv_layout_content, 0)
+        errorLayoutId = typedArray.getResourceId(R.styleable.ContentView_cv_layout_error, 0)
+        emptyLayoutId = typedArray.getResourceId(R.styleable.ContentView_cv_layout_empty, 0)
 
         typedArray.recycle()
+    }
 
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        children.iterator().forEach { view ->
+            try {
+                if (view.tag !is Int && view.tag is String)
+                    view.tag = (view.tag as? String)?.toIntOrNull()
+                view.setVisibility(false)
+            } catch (e: Exception) {
+                if (BuildConfig.DEBUG)
+                    Log.e("ContentView", "Could not get int tag from view", e)
+            }
+        }
         showLoading()
     }
 

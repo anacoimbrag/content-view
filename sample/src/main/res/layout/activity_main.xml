@@ -9,11 +9,14 @@
         android:id="@+id/contentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_content="@layout/content_layout"
-        app:layout_empty="@layout/empty_layout"
-        app:layout_error="@layout/error_layout"
-        app:layout_loading="@layout/loading_layout"
-        tools:context=".MainActivity" />
+        app:cv_layout_error="@layout/error_layout"
+        app:cv_layout_loading="@layout/loading_layout"
+        tools:context=".MainActivity">
+
+        <include layout="@layout/content_layout" />
+
+        <include layout="@layout/empty_layout" />
+    </com.anacoimbra.android.contentview.ContentView>
 
     <include layout="@layout/buttons" />
 </androidx.constraintlayout.widget.ConstraintLayout>

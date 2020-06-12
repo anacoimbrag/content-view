@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cv_layout_type_loading">1054633244</string>
+    <string name="cv_layout_type_content">1669513305</string>
+    <string name="cv_layout_type_error">66247144</string>
+    <string name="cv_layout_type_empty">66096429</string>
+</resources>

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingBottom="120dp">
+    android:paddingBottom="120dp"
+    android:tag="@string/cv_layout_type_empty">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"

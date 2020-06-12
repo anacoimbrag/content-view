@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/anacoimbrag/content-view/branch/master/graph/badge.svg)](https://codecov.io/gh/anacoimbrag/content-view)
 
 Simple customizable component to show different types of layout. There are 4 default layout types 
-to use: *LOADING*, *CONTENT*, *ERROR* and *EMPTY* or you can setup a customized one.
+to use: *LOADING*, *CONTENT*, *ERROR* and *EMPTY* or you can setup a *Custom* layout.
 
 ![ContentView Sample](screenshots/content-view.gif)
 
@@ -29,19 +29,38 @@ dependencies {
     implementation "com.anacoimbra.android.content-view:$latest_version"
 }
 ```
+Latest version is [![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view)
 
 ### Set layouts
-You can set your layout directly on XML, setting up the default layout with it's corresponding layout resource:
+You can set your layout directly on XML, in two ways:
+ 1. setting up the layout type using `ContentView` attributes (`cv_layout_loading`, `cv_layout_content`, `cv_layout_error` or `cv_layout_empty`).
+ 2. placing the views as a child, then you need to set `android:tag` in children views to work. You can use custom tags, but it needs to be **convertible to an Integer**. 
 ```xml
+<!-- activity_main.xml -->
 <com.anacoimbra.android.contentview.ContentView
-        android:id="@+id/content_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_content="@layout/content_layout"
-        app:layout_empty="@layout/empty_layout"
-        app:layout_error="@layout/error_layout"
-        app:layout_loading="@layout/loading_layout" />
+    android:id="@+id/contentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cv_layout_error="@layout/error_layout"
+    app:cv_layout_loading="@layout/loading_layout"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/content_layout" />
+
+    <include layout="@layout/empty_layout" />
+</com.anacoimbra.android.contentview.ContentView>
 ``` 
+
+```xml
+<!-- content_layout.xml -->
+<androidx.appcompat.widget.LinearLayoutCompat 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="@string/cv_layout_type_empty">
+    ...
+</androidx.appcompat.widget.LinearLayoutCompat>
+```
 
 Or you can set programmatically:
 
