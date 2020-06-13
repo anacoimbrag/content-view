@@ -1,6 +1,7 @@
 # ContentView
 
-![Deploy](https://github.com/anacoimbrag/content-view/workflows/Github%20Packages/badge.svg)
+![Deploy](https://github.com/anacoimbrag/content-view/workflows/Deploy/badge.svg)
+[![Min SDK](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view)
 [![codecov](https://codecov.io/gh/anacoimbrag/content-view/branch/master/graph/badge.svg)](https://codecov.io/gh/anacoimbrag/content-view)
 
@@ -26,7 +27,7 @@ allprojects {
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation "com.anacoimbra.android.content-view:$latest_version"
+    implementation "com.github.anacoimbrag:content-view:$latest_version"
 }
 ```
 Latest version is [![](https://jitpack.io/v/anacoimbrag/content-view.svg)](https://jitpack.io/#anacoimbrag/content-view)
